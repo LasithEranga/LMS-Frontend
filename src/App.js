@@ -51,7 +51,6 @@ function App() {
   }
 
   return (
-<<<<<<< HEAD
     <div className="App d-flex flex-wrap">
       {data.map((user, index) => {
         return (
@@ -77,12 +76,6 @@ function App() {
       <Button onClick={onClickHandler}>Reload</Button>
       {reload && <Button onClick={onClickHandler}>Reset</Button>}
       {}
-=======
-    <div className="App">
-      <h1>Hello world</h1>
-      Hello world
-      <button>Login</button>
->>>>>>> 28b8450521022ad67f8479174ccc0710c87aab6e
     </div>
   );
 }
