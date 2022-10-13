@@ -1,5 +1,7 @@
 import React from "react";
 import Toast from "react-bootstrap/Toast";
+import { useDispatch, useSelector } from "react-redux";
+import { hideAlert } from "../reducers/alertSlice";
 
 const sx = {
   borderRadius: "5px",
@@ -8,20 +10,27 @@ const sx = {
 };
 
 function ToastMessage({ show, setShow }) {
+  const alertState = useSelector((state) => state.newAlert);
+  const dispatch = useDispatch();
+
   return (
     <>
       <Toast
-        onClose={() => setShow({ ...show, isVisible: false })}
-        show={show.isVisible}
+        onClose={() => {
+          dispatch(hideAlert());
+        }}
+        show={alertState.isVisible}
         delay={3000}
         autohide
         className="position-absolute d-flex justify-content-between p-3 pe-2"
         style={sx}
       >
-        <div>{show.message}</div>
+        <div>{alertState.message}</div>
         <button
           className="btn-close btn-feature"
-          onClick={() => setShow(setShow({ ...show, isVisible: false }))}
+          onClick={() => {
+            dispatch(hideAlert());
+          }}
         ></button>
       </Toast>
     </>
