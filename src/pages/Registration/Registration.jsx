@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { apiManager } from "../../app/apiManager";
 import sideImage from "../../assests/lms_side_image.jpg";
 import InputGroup from "../../components/InputGroup";
+import ToastMessage from "../../components/ToastMessage";
 function Registration() {
+  const [alert, setAlert] = useState({
+    isVisible: false,
+    message: "",
+  });
   const [userInfo, setUserInfo] = useState({
     fname: "",
     lname: "",
@@ -18,24 +24,12 @@ function Registration() {
   };
 
   const onSubmitClickHandler = () => {
-    fetch("url", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(userInfo),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    apiManager("POST", "/auth/signup", userInfo);
   };
 
   return (
     <div className="vh-100 d-flex  bg-dark">
+      <ToastMessage show={alert} setShow={setAlert} />
       <div className="shadow-sm d-flex justify-content-center align-items-center col-12 ">
         <div
           className="col-4 rounded-start"
