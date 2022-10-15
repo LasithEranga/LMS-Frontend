@@ -9,24 +9,24 @@ export const apiManager = (path, body, shouldAlert, method = "POST") => {
     },
     body: JSON.stringify(body),
   })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data) {
-        if (data.responseCode === "00") {
-          //   setAlert({ message: data.message, isVisible: true });
-          //TODO: gobal alert
-          console.log(data);
-          shouldAlert &&
-            store.dispatch(
-              showAlert({
-                isVisible: true,
-                message: data.message,
-              })
-            );
-          return data;
-        }
+    .then((response) => {
+      console.log(response);
+      if (response.status === 200) {
+        //   setAlert({ message: data.message, isVisible: true });
+        //TODO: gobal alert
+        let data = response.json();
+        console.log(data);
+        shouldAlert &&
+          store.dispatch(
+            showAlert({
+              isVisible: true,
+              message: data.message,
+            })
+          );
+        return data;
       }
     })
+
     .catch((error) => {
       store.dispatch(
         showAlert({
