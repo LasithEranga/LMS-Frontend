@@ -5,6 +5,8 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import "./custom.scss";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Registration from "./pages/Registration/Registration";
+import GradeView from "./pages/GradeView/GradeView";
+import CourseEvaluation from "./pages/CourseEvaluation/CourseEvaluation";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
 
             <Route path="/" element={<Sidebar />}>
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/grades" element={<GradeView />} />
+              <Route path="/course-evaluation" element={<CourseEvaluation />} />
             </Route>
           </Routes>
         </BrowserRouter>
