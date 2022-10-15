@@ -15,11 +15,13 @@ const Sidebar = () => {
               onClick={() => {
                 setShow((prev) => !prev);
               }}
-              className={`text-light fw-bold ps-3 pb-3 fs-5 `}
+              className={`text-light fw-bold ${
+                show ? "ps-2" : "ps-3"
+              } pb-3 fs-5 `}
             >
               <i
-                className={`text-light fs-5 fas fa-bars ps-1 me-2 ${
-                  show ? "fa-solid fa-xmark" : null
+                className={`text-light fs-5  me-2 ${
+                  show ? "" : " fas fa-bars ps-1"
                 }`}
               ></i>
               {show ? "FLO KELANIYA" : ""}
@@ -36,29 +38,24 @@ const Sidebar = () => {
                 path="/dashboard"
               />
               <StyledLink
-                title={"Dashboard"}
+                title={"Modules"}
                 iconClass="fas fa-tachometer-alt"
                 path="/dashboard"
               />
               <StyledLink
-                title={"Dashboard"}
+                title={"Grades"}
                 iconClass="fas fa-tachometer-alt"
                 path="/dashboard"
-              />{" "}
+              />
               <StyledLink
-                title={"Courses"}
+                title={"Profile"}
                 iconClass="fas fa-tachometer-alt"
                 path="/course-evaluation"
-              />{" "}
-              <StyledLink
-                title={"Dashboard"}
-                iconClass="fas fa-tachometer-alt"
-                path="/dashboard"
               />
             </div>
           </div>
 
-          <Link to="/logout" className="">
+          <Link to="/logout" className="text-center">
             <i className="fas fa-sign-out nav-link-icon"></i>
           </Link>
         </nav>
