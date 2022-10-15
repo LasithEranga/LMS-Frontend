@@ -11,7 +11,9 @@ const CoursesOverview = () => {
           <Link to={"courses"}>View All</Link>
         </div>
       </div>
-      <div>
+      <div className="d-flex gap-2">
+        <CardView />
+        <CardView />
         <CardView />
       </div>
     </div>
