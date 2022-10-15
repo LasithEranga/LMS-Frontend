@@ -1,48 +1,34 @@
-import './CourseView.css';
+import CardView from "./CardView";
+import "./CourseView.css";
 
-function CourseView() {
+const CourseView = () => {
   return (
-  
-    <div>
-      <table>
-        <tr>
-          <td class = "search"> Search Here: </td>
-          <td class = "search"> Information Communcation And Technologies </td>
-        </tr>
+    <div className="ps-5 ms-3">
+      <div className=" pt-3 fs-3 fw-semibold">All Courses</div>
 
-        
-        <div class="grid-container">
-            <div class="item1"></div>
-            <div class="item2">
-              <h2> Software Engineering Concepts </h2>
-              <p> Semester 1 , Year 3 | DR.Dilani Wickramaarachchi</p>
-              <button class = "btn">Enroll</button>
-            </div>
-         </div>
+      <div className="d-flex my-2 col-11 p-3 shadow-sm border border-1">
+        <div className="col-8 pe-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search course name"
+          />
+        </div>
+        <div className="col-4">
+          <select name="" id="" className="form-control">
+            <option value="">Management and IT</option>
+            <option value="">SE</option>
+          </select>
+        </div>
+      </div>
 
-         <div class="grid-container">
-            <div class="item1"></div>
-            <div class="item2">
-              <h2> Software Engineering Concepts </h2>
-              <p> Semester 1 , Year 3 | DR.Dilani Wickramaarachchi</p>
-              <button class = "btn">Enroll</button>
-            </div>
-         </div>
-
-         <div class="grid-container">
-            <div class="item1"></div>
-            <div class="item2">
-              <h2> Software Engineering Concepts </h2>
-              <p> Semester 1 , Year 3 | DR.Dilani Wickramaarachchi</p>
-              <button class = "btn">Enroll</button>
-            </div>
-         </div>
-
-      </table>
+      <div className="d-flex row gap-2 p-1" style={{ height: "20rem" }}>
+        <CardView />
+        <CardView />
+        <CardView />
+      </div>
     </div>
-
-    
   );
-}
+};
 
 export default CourseView;

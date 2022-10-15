@@ -8,6 +8,7 @@ import Registration from "./pages/Registration/Registration";
 import GradeView from "./pages/GradeView/GradeView";
 import CourseEvaluation from "./pages/CourseEvaluation/CourseEvaluation";
 import Login from "./pages/Login/Login";
+import CourseView from "./components/CourseView/CourseView";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Sidebar />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/grades" element={<GradeView />} />
+              <Route path="/course-view" element={<CourseView />} />
               <Route path="/course-evaluation" element={<CourseEvaluation />} />
             </Route>
           </Routes>

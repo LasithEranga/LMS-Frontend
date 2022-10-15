@@ -7,7 +7,7 @@ const Sidebar = () => {
   const [show, setShow] = useState(true);
 
   return (
-    <div className="d-flex">
+    <div className="d-flex " style={{ overflowX: "hidden" }}>
       <div className={`sidebar ${show ? "" : "sidebar-colapsed"}`}>
         <nav className="nav">
           <div>
