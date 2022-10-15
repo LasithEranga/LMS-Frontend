@@ -30,7 +30,7 @@ main {
   transition: 0.5s;
 }
 
-.header {
+.top-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -51,14 +51,21 @@ main {
 }
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -30%;
   height: 100vh;
-  width: var(--nav-width);
+  position: sticky;
+  top: 0;
+  width: 185px;
   background-color: var(--first-color);
   padding-top: 1rem;
-  transition: 0.5s;
+  transition: width 0.8s;
+}
+
+.sidebar-colapsed {
+  width: 57px;
+}
+
+.text-animation {
+  transition: font-size 0.5s;
 }
 
 .nav {
@@ -124,7 +131,7 @@ main {
   left: 0;
 }
 
-.space-toggle {
+.space-toggle-sidebar {
   padding-left: calc(var(--nav-width) + 1rem);
 }
 

@@ -1,57 +1,80 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
 import { Link, Outlet } from "react-router-dom";
+import StyledLink from "./StyledLink";
 
 const Sidebar = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   return (
-    <main className={show ? "space-toggle" : null}>
-      <header className={`header ${show ? "space-toggle" : null}`}>
-        <div className="header-toggle" onClick={() => setShow(!show)}>
-          <i className={`fas fa-bars ${show ? "fa-solid fa-xmark" : null}`}></i>
-        </div>
-      </header>
-
-      <aside className={`sidebar ${show ? "show" : null}`}>
+    <div className="d-flex">
+      <div className={`sidebar ${show ? "" : "sidebar-colapsed"}`}>
         <nav className="nav">
           <div>
-            <Link to="/" className="nav-logo">
-              <i className={`fas fa-home-alt nav-logo-icon`}></i>
-              <span className="nav-logo-name">Homepage</span>
-            </Link>
+            <div
+              onClick={() => {
+                setShow((prev) => !prev);
+              }}
+              className={`text-light fw-bold ps-3 pb-3 fs-5 `}
+            >
+              <i
+                className={`text-light fs-5 fas fa-bars ps-1 me-2 ${
+                  show ? "fa-solid fa-xmark" : null
+                }`}
+              ></i>
+              {show ? "FLO KELANIYA" : ""}
+            </div>
 
-            <div className="nav-list">
-              <Link to="/dashboard" className="nav-link ">
-                <i className="fas fa-tachometer-alt nav-link-icon"></i>
-                <span className="nav-link-name">Dashboard</span>
-              </Link>
-              <Link to="/hotel" className="nav-link">
-                <i className="fas fa-hotel nav-link-icon"></i>
-                <span className="nav-link-name">Courses</span>
-              </Link>
-              <Link to="/gallery" className="nav-link">
-                <i className="fas fa-image nav-link-icon"></i>
-                <span className="nav-link-name">Student</span>
-              </Link>
-              <Link to="/gallery" className="nav-link">
-                <i className="fas fa-dollar-sign nav-link-icon"></i>
-                <span className="nav-link-name">Enrollment</span>
-              </Link>
+            <div
+              className={`pt-2 d-flex row gap-4 ${
+                show ? "fs-5" : "fs-4"
+              }  ps-3`}
+            >
+              <StyledLink
+                title={"Dashboard"}
+                iconClass="fas fa-tachometer-alt"
+                path="/dashboard"
+              />
+              <StyledLink
+                title={"Dashboard"}
+                iconClass="fas fa-tachometer-alt"
+                path="/dashboard"
+              />
+              <StyledLink
+                title={"Dashboard"}
+                iconClass="fas fa-tachometer-alt"
+                path="/dashboard"
+              />{" "}
+              <StyledLink
+                title={"Courses"}
+                iconClass="fas fa-tachometer-alt"
+                path="/course-evaluation"
+              />{" "}
+              <StyledLink
+                title={"Dashboard"}
+                iconClass="fas fa-tachometer-alt"
+                path="/dashboard"
+              />
             </div>
           </div>
 
-          <Link to="/logout" className="nav-link">
+          <Link to="/logout" className="">
             <i className="fas fa-sign-out nav-link-icon"></i>
-            <span className="nav-link-name">Logout</span>
           </Link>
         </nav>
-      </aside>
-
-      <div>
+      </div>
+      <div className="col">
+        <div
+          className="bg-dark py-3 position-sticky top-0"
+          onClick={() => {
+            setShow((prev) => !prev);
+          }}
+        >
+          .
+        </div>
         <Outlet />
       </div>
-    </main>
+    </div>
   );
 };
 
