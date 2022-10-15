@@ -39,17 +39,17 @@ const Sidebar = () => {
               />
               <StyledLink
                 title={"Modules"}
-                iconClass="fas fa-tachometer-alt"
+                iconClass="fa-solid fa-book"
                 path="/dashboard"
               />
               <StyledLink
                 title={"Grades"}
-                iconClass="fas fa-tachometer-alt"
+                iconClass="fa-solid fa-chart-simple"
                 path="/dashboard"
               />
               <StyledLink
                 title={"Profile"}
-                iconClass="fas fa-tachometer-alt"
+                iconClass="fa-solid fa-user"
                 path="/course-evaluation"
               />
             </div>
