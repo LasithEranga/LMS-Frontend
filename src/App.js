@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "./app/store";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import GradeView from "./pages/GradeView/GradeView";
+import CourseEvaluation from "./pages/CourseEvaluation/CourseEvaluation";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/sign-up" element={<Registration />} />
             <Route path="/" element={<Dashboard />} />
             <Route path="/grades" element={<GradeView />} />
+            <Route path="/course-evaluation" element={<CourseEvaluation />} />
           </Routes>
         </BrowserRouter>
       </div>
