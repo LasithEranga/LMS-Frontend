@@ -1,7 +1,7 @@
 import { showAlert } from "../reducers/alertSlice";
 import store from "./store";
 
-export const apiManager = (method = "POST", path, body) => {
+export const apiManager = (path, body, shouldAlert, method = "POST") => {
   fetch(process.env.REACT_APP_BASE_URL + path, {
     method: method,
     headers: {
@@ -16,16 +16,23 @@ export const apiManager = (method = "POST", path, body) => {
           //   setAlert({ message: data.message, isVisible: true });
           //TODO: gobal alert
           console.log(data);
-          store.dispatch(
-            showAlert({
-              isVisible: true,
-              message: data.message,
-            })
-          );
+          shouldAlert &&
+            store.dispatch(
+              showAlert({
+                isVisible: true,
+                message: data.message,
+              })
+            );
+          return data;
         }
       }
     })
     .catch((error) => {
-      console.log(error);
+      store.dispatch(
+        showAlert({
+          isVisible: true,
+          message: "Somthing went wrong",
+        })
+      );
     });
 };

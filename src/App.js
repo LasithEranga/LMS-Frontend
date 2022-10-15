@@ -1,16 +1,13 @@
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import store from "./app/store";
-import Sidebar from "./components/Sidebar/Sidebar";
 import "./custom.scss";
 import Dashboard from "./pages/Dashboard/Dashboard";
-<<<<<<< HEAD
 import Sidebar from "./components/Sidebar/Sidebar";
-=======
 import Registration from "./pages/Registration/Registration";
 import GradeView from "./pages/GradeView/GradeView";
 import CourseEvaluation from "./pages/CourseEvaluation/CourseEvaluation";
->>>>>>> origin/master
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -18,6 +15,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
+            <Route path="/login" element={<Login />} />
             <Route path="/sign-up" element={<Registration />} />
 
             <Route path="/" element={<Sidebar />}>

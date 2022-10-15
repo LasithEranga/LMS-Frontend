@@ -24,7 +24,7 @@ function Registration() {
   };
 
   const onSubmitClickHandler = () => {
-    apiManager("POST", "/auth/signup", userInfo);
+    apiManager("/auth/signup", userInfo, true, "POST");
   };
 
   return (

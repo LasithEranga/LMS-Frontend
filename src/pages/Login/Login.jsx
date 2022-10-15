@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { apiManager } from "../../app/apiManager";
-import sideImage from "../../assests/lms_side_image.jpg";
+
 import InputGroup from "../../components/InputGroup";
 import ToastMessage from "../../components/ToastMessage";
+import { login } from "../../reducers/loginSlice";
 function Login() {
+  const dispatch = useDispatch();
   const [alert, setAlert] = useState({
     isVisible: false,
     message: "",
@@ -19,22 +22,22 @@ function Login() {
   };
 
   const onSubmitClickHandler = () => {
-    s;
-    apiManager("POST", "/auth/login", userInfo);
+    let userDetails = apiManager("/auth/login", userInfo, true, "POST");
+    if (userDetails) {
+      dispatch(
+        login({
+          userid: "userDetails.userid",
+          username: userDetails.username,
+          role: "userDetails.role",
+          token: userDetails.token,
+        })
+      );
+    }
   };
-
   return (
     <div className="vh-100 d-flex  bg-dark">
       <ToastMessage show={alert} setShow={setAlert} />
       <div className="shadow-sm d-flex justify-content-center align-items-center col-12 ">
-        <div
-          className="col-4 rounded-start"
-          style={{
-            height: "32.95rem",
-            backgroundImage: `url(${sideImage})`,
-            backgroundSize: "cover",
-          }}
-        ></div>
         <div className="col-4 border border-1 p-3 bg-light rounded-end">
           <h3>Login</h3>
           <h6 className="text-form-text">Enter Your Details</h6>
@@ -62,7 +65,7 @@ function Login() {
           <div className="d-flex justify-content-end gap-2 mt-3">
             <Button className="px-4 bg-secondary">Clear</Button>
             <Button className="px-4 bg-btns" onClick={onSubmitClickHandler}>
-              Save
+              Login
             </Button>
           </div>
 
