@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   return (
