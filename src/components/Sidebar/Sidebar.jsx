@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Sidebar = () => {
   const [show, setShow] = useState(false);
@@ -48,7 +48,9 @@ const Sidebar = () => {
         </nav>
       </aside>
 
-      <h1>Content</h1>
+      <div>
+        <Outlet />
+      </div>
     </main>
   );
 };

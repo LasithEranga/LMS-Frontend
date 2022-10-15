@@ -1,10 +1,10 @@
-import logo from "./logo.svg";
-import "./custom.scss";
-import Registration from "./pages/Registration/Registration";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import store from "./app/store";
+import Sidebar from "./components/Sidebar/Sidebar";
+import "./custom.scss";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Registration from "./pages/Registration/Registration";
 
 function App() {
   return (
@@ -13,7 +13,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/sign-up" element={<Registration />} />
-            <Route path="/" element={<Dashboard />} />
+
+            <Route path="/" element={<Sidebar />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </div>
