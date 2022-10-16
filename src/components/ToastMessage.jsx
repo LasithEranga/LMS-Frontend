@@ -1,5 +1,5 @@
 import React from "react";
-import Toast from "react-bootstrap/Toast";
+import { Toast } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { hideAlert } from "../reducers/alertSlice";
 

@@ -10,6 +10,7 @@ import CourseEvaluation from "./pages/CourseEvaluation/CourseEvaluation";
 import Login from "./pages/Login/Login";
 import CourseView from "./components/CourseView/CourseView";
 import Profile from "./pages/Profile/Profile";
+import Announcement from "./pages/Announcement/AddAnnouncement";
 
 function App() {
   return (
@@ -26,7 +27,9 @@ function App() {
               <Route path="/course-view" element={<CourseView />} />
               <Route path="/course-evaluation" element={<CourseEvaluation />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/announcement" element={<Announcement />} />
             </Route>
+            
           </Routes>
         </BrowserRouter>
       </div>
