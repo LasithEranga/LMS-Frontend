@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { apiManager } from "../../app/apiManager";
 
 import InputGroup from "../../components/InputGroup";
@@ -25,7 +25,7 @@ function Login() {
   };
 
   const onSubmitClickHandler = () => {
-    let userDetails = apiManager("/auth/login", userInfo, true, "POST");
+    let userDetails = apiManager("/auth/login", userInfo, false, "POST");
 
     userDetails.then((data) => {
       console.log(data);
@@ -65,6 +65,10 @@ function Login() {
             value={userInfo.password}
             onchange={onChangeHandler}
           />
+
+          <div className="pt-2 ">
+            Dont have an account? <Link to={"/sign-up"}>Sign up</Link>
+          </div>
 
           {/* action buttons---------------------------- */}
 
