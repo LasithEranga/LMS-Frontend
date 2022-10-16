@@ -1,7 +1,15 @@
 import React from "react";
 import courseLogo from "../../assests/course_logo.jpg";
 
-const CardView = ({ courseName, semester, year, lecturer, onclick }) => {
+const CardView = ({
+  courseName,
+  semester,
+  year,
+  lecturer,
+  onclick,
+  isEnrolled,
+  onViewHandler,
+}) => {
   return (
     <div className="d-flex shadow-sm col-11">
       <div className="col-3  my-2 ">
@@ -12,8 +20,11 @@ const CardView = ({ courseName, semester, year, lecturer, onclick }) => {
         <p>
           {semester} , {year} | {lecturer}
         </p>
-        <button className="btn" onClick={onclick}>
-          Enroll
+        <button
+          className="btn btn-primary"
+          onClick={isEnrolled ? onViewHandler : onclick}
+        >
+          {isEnrolled ? "View" : "Enroll"}
         </button>
       </div>
     </div>

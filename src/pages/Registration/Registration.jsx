@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { apiManager } from "../../app/apiManager";
 import sideImage from "../../assests/lms_side_image.jpg";
 import InputGroup from "../../components/InputGroup";
 import ToastMessage from "../../components/ToastMessage";
 function Registration() {
+  const navigate = useNavigate();
   const [alert, setAlert] = useState({
     isVisible: false,
     message: "",
@@ -24,7 +26,11 @@ function Registration() {
   };
 
   const onSubmitClickHandler = () => {
-    apiManager("/auth/signup", userInfo, true, "POST");
+    let response = apiManager("/auth/signup", userInfo, true, "POST");
+    response.then((data) => {
+      navigate("/login");
+    });
+    //
   };
 
   return (
@@ -34,7 +40,7 @@ function Registration() {
         <div
           className="col-4 rounded-start"
           style={{
-            height: "32.95rem",
+            height: "38.4rem",
             backgroundImage: `url(${sideImage})`,
             backgroundSize: "cover",
           }}
@@ -93,6 +99,21 @@ function Registration() {
             value={userInfo.confirmPassword}
             onchange={onChangeHandler}
           />
+          <div>
+            <div className=" text-form-text pt-2">I am a</div>
+            <select
+              className="form-control my-2 py-2"
+              onChange={(event) => {
+                setUserInfo({
+                  ...userInfo,
+                  role: event.target.value,
+                });
+              }}
+            >
+              <option value={"lecturer"}>Lecturer</option>
+              <option value={"student"}>Student</option>
+            </select>
+          </div>
 
           {/* action buttons---------------------------- */}
 

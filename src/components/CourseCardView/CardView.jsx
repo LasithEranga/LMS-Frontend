@@ -1,7 +1,7 @@
 import React from "react";
 import courseLogo from "../../assests/course_logo.jpg";
 
-const CardView = ({ noOfCols = 4 }) => {
+const CardView = ({ moduleCode, moduleName, noOfCols = 4 }) => {
   return (
     <div className={`col-12 col-lg-${noOfCols} p-2 shadow `}>
       <div>
@@ -10,8 +10,17 @@ const CardView = ({ noOfCols = 4 }) => {
       <div>
         <hr />
       </div>
-      <div>Module code - module name</div>
-      <div>enroll btn</div>
+      <div className="text-secondary fw-semibold">
+        {moduleCode} - {moduleName}
+      </div>
+      <div className="d-flex justify-content-end">
+        <span
+          className=" px-4 rounded-2 py-1 text-primary fw-semibold "
+          role={"button"}
+        >
+          View
+        </span>
+      </div>
     </div>
   );
 };

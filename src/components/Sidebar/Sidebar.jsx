@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Sidebar.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import StyledLink from "./StyledLink";
 import ToastMessage from "../ToastMessage";
+import { store } from "../../app/store";
+import { logout } from "../../reducers/loginSlice";
 
 const Sidebar = () => {
   const [show, setShow] = useState(true);
+  const [isnavigating, setNavigating] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {}, [isnavigating]);
 
   return (
     <div className="d-flex " style={{ overflowX: "hidden" }}>
@@ -56,7 +62,13 @@ const Sidebar = () => {
             </div>
           </div>
 
-          <div className="ps-4 mb-2 d-flex align-items-center fs-5 ">
+          <div
+            className="ps-4 mb-2 d-flex align-items-center fs-5 "
+            onClick={() => {
+              store.dispatch(logout());
+              navigate("/login");
+            }}
+          >
             <StyledLink
               title={"Logout"}
               iconClass="fa-solid fa-arrow-right-from-bracket"
