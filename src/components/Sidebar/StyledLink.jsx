@@ -9,7 +9,7 @@ const StyledLink = ({ path, title, iconClass }) => {
         className=" d-flex  align-items-center pe-5 text-decoration-none text-light"
       >
         <i
-          className={`${iconClass} nav-link-icon mt-1 me-3 text-animation`}
+          className={`${iconClass} nav-link-icon mt-1 me-3 pe-1 text-animation`}
         ></i>
         <div>{title}</div>
       </Link>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { apiManager } from "../../app/apiManager";
 
 import InputGroup from "../../components/InputGroup";
@@ -8,6 +9,8 @@ import ToastMessage from "../../components/ToastMessage";
 import { login } from "../../reducers/loginSlice";
 function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [alert, setAlert] = useState({
     isVisible: false,
     message: "",
@@ -33,6 +36,7 @@ function Login() {
           token: data.token,
         })
       );
+      navigate("/dashboard");
     });
   };
   return (

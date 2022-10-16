@@ -3,7 +3,7 @@ import courseLogo from "../../assests/course_logo.jpg";
 
 const CardView = ({ noOfCols = 4 }) => {
   return (
-    <div className={`col-${noOfCols} p-2 shadow `}>
+    <div className={`col-12 col-lg-${noOfCols} p-2 shadow `}>
       <div>
         <img src={courseLogo} alt="" width={"100%"} />
       </div>

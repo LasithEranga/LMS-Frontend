@@ -53,15 +53,26 @@ main {
 .sidebar {
   height: 100vh;
   position: sticky;
-  top: 0;
+  top: 0 !important;
   width: 185px;
   background-color: var(--first-color);
-  padding-top: 1rem;
   transition: width 0.8s;
+  z-index: 10;
 }
 
 .sidebar-colapsed {
   width: 57px;
+}
+
+.w-transition {
+  transition: width 0.8s;
+}
+.sidebar-padding {
+  width: 185px;
+}
+
+.sidebar-colapsed-padding {
+  width: 550px;
 }
 
 .text-animation {

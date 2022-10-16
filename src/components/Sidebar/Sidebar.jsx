@@ -40,24 +40,27 @@ const Sidebar = () => {
               <StyledLink
                 title={"Modules"}
                 iconClass="fa-solid fa-book"
-                path="/dashboard"
+                path="/course-view"
               />
               <StyledLink
                 title={"Grades"}
                 iconClass="fa-solid fa-chart-simple"
-                path="/dashboard"
+                path="/grades"
               />
               <StyledLink
                 title={"Profile"}
                 iconClass="fa-solid fa-user"
-                path="/course-evaluation"
+                path="/profile"
               />
             </div>
           </div>
 
-          <Link to="/logout" className="text-center">
-            <i className="fas fa-sign-out nav-link-icon"></i>
-          </Link>
+          <div className="ps-4 mb-2 d-flex align-items-center fs-5 ">
+            <StyledLink
+              title={"Logout"}
+              iconClass="fa-solid fa-arrow-right-from-bracket"
+            />
+          </div>
         </nav>
       </div>
       <div className="col">
@@ -69,7 +72,10 @@ const Sidebar = () => {
         >
           .
         </div>
-        <Outlet />
+
+        <div style={{ height: "80vh" }}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

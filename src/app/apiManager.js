@@ -2,7 +2,7 @@ import { showAlert } from "../reducers/alertSlice";
 import store from "./store";
 
 export const apiManager = (path, body, shouldAlert, method = "POST") => {
-  return fetch(process.env.REACT_APP_BASE_URL + path, {
+  return fetch(`${process.env.REACT_APP_BASE_URL}${path}`, {
     method: method,
     headers: {
       "Content-type": "application/json",

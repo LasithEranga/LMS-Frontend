@@ -1,49 +1,45 @@
 .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    gap: 10px;
-    padding: 10px;
-  }
-  
-  .grid-container > div {
-    border: 1px solid black;
-  }
-  
-  .item1 {
-    grid-column: 1 / 2;
-    background-color: aqua;
-    margin-left: 90px;
-    width: 200px;
-  }
-  
-  .item2  {
-    border: solid black;
-    width: 1000px;
-  }
-  
-  .search {
-    width: 500px;
-    height: 50px;
-    background-color: gray;
-    border:none;
-    border-radius: 10px;
-    color: black;
-    font-size: 20px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 50px;
-    padding: 10px;
-  }
-  
-  .btn {
-    padding: 10px;
-    background-color: orange;
-    color: white;
-    border: none;
-    float: right;
-    margin-right: 20px;
-    margin-bottom: 10px;
-  }
-  
-  
-  
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  border: 1px solid black;
+}
+
+.item1 {
+  grid-column: 1 / 2;
+  background-color: aqua;
+  margin-left: 90px;
+  width: 200px;
+}
+
+.item2 {
+  border: solid black;
+  width: 1000px;
+}
+
+.search {
+  width: 500px;
+  height: 50px;
+  background-color: gray;
+  border: none;
+  border-radius: 10px;
+  color: black;
+  font-size: 20px;
+  float: left;
+  margin-left: 100px;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+.btn {
+  padding: 10px;
+  background-color: orange;
+  color: white;
+  border: none;
+  float: right;
+  margin-right: 20px;
+}

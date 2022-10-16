@@ -4,7 +4,7 @@ import ProfileView from "../../components/ProfileView/ProfileView";
 
 const Profile = () => {
   return (
-    <div className="ps-3">
+    <div className="ps-4">
       <div className=" pt-3 fs-3 fw-semibold">Profile</div>
       <ProfileView />
 

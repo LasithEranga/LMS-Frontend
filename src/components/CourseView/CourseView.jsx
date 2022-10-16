@@ -1,7 +1,33 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { apiManager } from "../../app/apiManager";
 import CardView from "./CardView";
 import "./CourseView.css";
 
 const CourseView = () => {
+  const [fetchedData, setFetchedData] = useState([]);
+  const userDetails = useSelector((state) => state.login);
+
+  useEffect(() => {
+    //todo
+    let dataPromise = apiManager(
+      "/course/getAll",
+      {
+        token: userDetails.token,
+      },
+      false,
+      "POST"
+    );
+    dataPromise.then((data) => {
+      console.log(data);
+      setFetchedData(data);
+    });
+  }, []);
+
+  const onClickHandler = (courseId) => {
+    console.log(courseId);
+  };
+
   return (
     <div className="ps-5 ms-3">
       <div className=" pt-3 fs-3 fw-semibold">All Courses</div>
@@ -22,10 +48,23 @@ const CourseView = () => {
         </div>
       </div>
 
-      <div className="d-flex row gap-2 p-1" style={{ height: "20rem" }}>
-        <CardView />
-        <CardView />
-        <CardView />
+      <div className="d-flex row gap-2 p-2">
+        {fetchedData.map((course, index) => {
+          return (
+            <CardView
+              courseName={
+                course.courseDescription ? course.courseDescription : "dfg"
+              }
+              lecturer={course.lecturer ? course.lecturer.username : ""}
+              semester={course.semester ? course.semester : ""}
+              year={course.year ? course.year : ""}
+              key={index}
+              onclick={() => {
+                onClickHandler(course.id);
+              }}
+            />
+          );
+        })}
       </div>
     </div>
   );
