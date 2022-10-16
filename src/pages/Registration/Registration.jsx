@@ -34,7 +34,7 @@ function Registration() {
         <div
           className="col-4 rounded-start"
           style={{
-            height: "32.95rem",
+            height: "33.3rem",
             backgroundImage: `url(${sideImage})`,
             backgroundSize: "cover",
           }}
