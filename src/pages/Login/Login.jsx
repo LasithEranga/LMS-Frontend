@@ -23,16 +23,17 @@ function Login() {
 
   const onSubmitClickHandler = () => {
     let userDetails = apiManager("/auth/login", userInfo, true, "POST");
-    if (userDetails) {
+
+    userDetails.then((data) => {
       dispatch(
         login({
           userid: "userDetails.userid",
-          username: userDetails.username,
+          username: data.username,
           role: "userDetails.role",
-          token: userDetails.token,
+          token: data.token,
         })
       );
-    }
+    });
   };
   return (
     <div className="vh-100 d-flex  bg-dark">

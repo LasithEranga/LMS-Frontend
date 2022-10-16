@@ -7,7 +7,7 @@ const Sidebar = () => {
   const [show, setShow] = useState(true);
 
   return (
-    <div className="d-flex">
+    <div className="d-flex " style={{ overflowX: "hidden" }}>
       <div className={`sidebar ${show ? "" : "sidebar-colapsed"}`}>
         <nav className="nav">
           <div>
@@ -39,17 +39,17 @@ const Sidebar = () => {
               />
               <StyledLink
                 title={"Modules"}
-                iconClass="fas fa-tachometer-alt"
+                iconClass="fa-solid fa-book"
                 path="/dashboard"
               />
               <StyledLink
                 title={"Grades"}
-                iconClass="fas fa-tachometer-alt"
+                iconClass="fa-solid fa-chart-simple"
                 path="/dashboard"
               />
               <StyledLink
                 title={"Profile"}
-                iconClass="fas fa-tachometer-alt"
+                iconClass="fa-solid fa-user"
                 path="/course-evaluation"
               />
             </div>
