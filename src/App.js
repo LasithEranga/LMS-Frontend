@@ -12,6 +12,8 @@ import Profile from "./pages/Profile/Profile";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./app/store";
 import ToastMessage from "./components/ToastMessage";
+import Announcement from "./pages/Announcement/AddAnnouncement";
+
 function App() {
   return (
     <Provider store={store}>
@@ -33,6 +35,7 @@ function App() {
                   element={<CourseEvaluation />}
                 />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/announcement" element={<Announcement />} />
               </Route>
             </Routes>
           </BrowserRouter>
