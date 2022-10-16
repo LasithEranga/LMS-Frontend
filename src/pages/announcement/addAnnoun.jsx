@@ -26,7 +26,7 @@ function Announcement() {
             id="annon_content"
             type="text"
             name="annon_content"
-            value={userInfo.username}
+            value={announ_body}
             onchange={onChangeHandler}
           />
         </Modal.Body>
@@ -40,4 +40,4 @@ function Announcement() {
   );
 }
 
-render(<Example />);
+render(<Announcement />);
