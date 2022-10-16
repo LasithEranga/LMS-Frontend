@@ -1,12 +1,14 @@
 import React from "react";
 import Toast from "react-bootstrap/Toast";
 import { useDispatch, useSelector } from "react-redux";
-import { hideAlert } from "../reducers/alertSlice";
+import { hideAlert, resetMessage } from "../reducers/alertSlice";
 
 const sx = {
   borderRadius: "5px",
   bottom: "25px",
-  right: "25px",
+  left: "75vw",
+  width: "20rem",
+  zIndex: 500,
 };
 
 function ToastMessage({ show, setShow }) {
@@ -18,11 +20,12 @@ function ToastMessage({ show, setShow }) {
       <Toast
         onClose={() => {
           dispatch(hideAlert());
+          dispatch(resetMessage());
         }}
+        autohide
         show={alertState.isVisible}
         delay={3000}
-        autohide
-        className="position-absolute d-flex justify-content-between p-3 pe-2"
+        className="position-absolute d-flex justify-content-between p-3 pe-2 "
         style={sx}
       >
         <div>{alertState.message}</div>
@@ -30,6 +33,7 @@ function ToastMessage({ show, setShow }) {
           className="btn-close btn-feature"
           onClick={() => {
             dispatch(hideAlert());
+            dispatch(resetMessage());
           }}
         ></button>
       </Toast>

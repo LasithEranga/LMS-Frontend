@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Sidebar.css";
 import { Link, Outlet } from "react-router-dom";
 import StyledLink from "./StyledLink";
+import ToastMessage from "../ToastMessage";
 
 const Sidebar = () => {
   const [show, setShow] = useState(true);

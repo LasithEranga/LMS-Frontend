@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { apiManager } from "../../app/apiManager";
+import ToastMessage from "../ToastMessage";
 import CardView from "./CardView";
 import "./CourseView.css";
 
@@ -10,14 +11,7 @@ const CourseView = () => {
 
   useEffect(() => {
     //todo
-    let dataPromise = apiManager(
-      "/course/getAll",
-      {
-        token: userDetails.token,
-      },
-      false,
-      "POST"
-    );
+    let dataPromise = apiManager("/course/getAll", {}, false, "POST");
     dataPromise.then((data) => {
       console.log(data);
       setFetchedData(data);
@@ -25,7 +19,21 @@ const CourseView = () => {
   }, []);
 
   const onClickHandler = (courseId) => {
-    console.log(courseId);
+    console.log(courseId, userDetails.userid);
+
+    let dataPromise = apiManager(
+      "/enrollment/addEnrollment",
+      {
+        userId: userDetails.userid,
+        courseId: courseId,
+        token: userDetails.token,
+      },
+      true,
+      "POST"
+    );
+    dataPromise.then((data) => {
+      console.log(data);
+    });
   };
 
   return (
@@ -52,9 +60,7 @@ const CourseView = () => {
         {fetchedData.map((course, index) => {
           return (
             <CardView
-              courseName={
-                course.courseDescription ? course.courseDescription : "dfg"
-              }
+              courseName={course.courseName ? course.courseName : "dfg"}
               lecturer={course.lecturer ? course.lecturer.username : ""}
               semester={course.semester ? course.semester : ""}
               year={course.year ? course.year : ""}

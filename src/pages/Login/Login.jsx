@@ -28,11 +28,12 @@ function Login() {
     let userDetails = apiManager("/auth/login", userInfo, true, "POST");
 
     userDetails.then((data) => {
+      console.log(data);
       dispatch(
         login({
-          userid: "userDetails.userid",
+          userid: data.id,
           username: data.username,
-          role: "userDetails.role",
+          role: data.roles,
           token: data.token,
         })
       );

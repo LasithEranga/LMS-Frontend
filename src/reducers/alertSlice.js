@@ -12,11 +12,13 @@ export const alertSlice = createSlice({
       state.isVisible = action.payload.isVisible;
     },
     hideAlert: (state) => {
-      state.message = "";
       state.isVisible = false;
+    },
+    resetMessage: (state) => {
+      state.message = "";
     },
   },
 });
 
-export const { showAlert, hideAlert } = alertSlice.actions;
+export const { showAlert, hideAlert, resetMessage } = alertSlice.actions;
 export default alertSlice.reducer;

@@ -4,7 +4,7 @@ import courseLogo from "../../assests/course_logo.jpg";
 const CardView = ({ courseName, semester, year, lecturer, onclick }) => {
   return (
     <div className="d-flex shadow-sm col-11">
-      <div className="col-3 bg-success my-2 ">
+      <div className="col-3  my-2 ">
         <img src={courseLogo} alt="" width={"100%"} />
       </div>
       <div className="col-9 ps-3">
